@@ -1,0 +1,14 @@
+<h1>Tasks List</h1>
+<!-- <p>Find me in app/views/tasks/index.html.erb</p> -->
+
+<% @tasks.each do |task| %>
+<!--   <h2><%= task.title %></h2> -->
+<!--   <p><%= task.details %></p> -->
+<h2><%= link_to task.title, show_task_path(task) %></h2>
+
+<%= link_to "Delete", show_task_path(task['id']),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+<% end %>
+<%= link_to 'Add a new task', tasks_new_path %>
